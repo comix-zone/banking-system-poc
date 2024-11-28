@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "794eeb10-9881-487f-8f82-e40fe0e9a786",
+		"name": "dualsoft-banking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7614336"
+	},
+	"item": [
+		{
+			"name": "transaction-service",
+			"item": [
+				{
+					"name": "initialize-wallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \r\n    \"currency\": \"RSD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/v1/transaction/initialize-wallet",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"transaction",
+								"initialize-wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transfer-2-accounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromAccountId\": \"6daa87c8-f42a-4db3-831a-0e50e9a1c809\",\r\n    \"toAccountId\": \"db262182-151b-483f-ad59-403a43b13f6e\",\r\n    \"amount\": 10,\r\n    \"currency\": \"USD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/v1/transaction/transfer",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"transaction",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/v1/transaction/64bf2ac3-2190-4c55-9c7d-e00005b038e4/balance",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"transaction",
+								"64bf2ac3-2190-4c55-9c7d-e00005b038e4",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/v1/transaction/64bf2ac3-2190-4c55-9c7d-e00005b038e4?page=1&size=5&sort=DESC",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"transaction",
+								"64bf2ac3-2190-4c55-9c7d-e00005b038e4"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transfer-multi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromAccountId\" : \"6daa87c8-f42a-4db3-831a-0e50e9a1c809\",\r\n    \"correlationId\" : \"6daa87c8-f42a-4db3-831a-0e50e9a1c800\",\r\n    \"recipients\" : [\r\n        {\r\n            \"toAccountId\": \"db262182-151b-483f-ad59-403a43b13f6e\",\r\n            \"amount\":10,\r\n            \"currency\": \"RSD\"\r\n        },\r\n        {\r\n            \"toAccountId\": \"ea892213-3005-4dc5-9fbf-11d76ed3c1b0\",\r\n            \"amount\":10,\r\n            \"currency\": \"RSD\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/v1/transaction/transfer-multi",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"transaction",
+								"transfer-multi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "account-service",
+			"item": [
+				{
+					"name": "create-account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nikola\",\r\n    \"surname\": \"Pejakovic\",\r\n    \"personalId\": \"25221551187\",\r\n    \"address\": \"Some2 address\",\r\n    \"email\": \"jossh@co.com\",\r\n    \"phone\": \"+38167322254\",\r\n    \"currency\": \"USD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/account",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nikol31a\",\r\n    \"surname\": \"Peja3kovic11\",\r\n    \"personalId\": \"2512135272\",\r\n    \"address\": \"Somes22 ad12dress\",\r\n    \"email\": \"jo3552s2h@co.com\",\r\n    \"phone\": \"+381609555254\",\r\n    \"currency\": \"USD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/account/fb17778b-2faa-4018-9b9f-4c1f3a79a1c1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"account",
+								"fb17778b-2faa-4018-9b9f-4c1f3a79a1c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/account/64bf2ac3-2190-4c55-9c7d-e00005b038e8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"account",
+								"64bf2ac3-2190-4c55-9c7d-e00005b038e8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/account/fb17778b-2faa-4018-9b9f-4c1f3a79a1c1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"account",
+								"fb17778b-2faa-4018-9b9f-4c1f3a79a1c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transfer-money",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromAccount\": \"6daa87c8-f42a-4db3-831a-0e50e9a1c809\",\r\n    \"toAccount\": \"db262182-151b-483f-ad59-403a43b13f6e\",\r\n    \"amount\": 10000,\r\n    \"currency\": \"USD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/account/transfer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"account",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transfer-multi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromAccountId\" : \"cbb5a509-a69a-4a36-9425-e8ebc3bc2023\",\r\n    \"correlationId\" : \"6daa87c8-f42a-4db3-831a-0e50e9afas31\",\r\n    \"recipients\" : [\r\n        {\r\n            \"toAccountId\": \"815cecee-697f-435f-bfe5-d2d5b02eb352\",\r\n            \"amount\":1,\r\n            \"currency\": \"RSD\"\r\n        },\r\n        {\r\n            \"toAccountId\": \"baba311e-ab11-4179-9a6f-e3893a01ea5f\",\r\n            \"amount\":1,\r\n            \"currency\": \"RSD\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/account/transfer-multi",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"account",
+								"transfer-multi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-transaction-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/account/cbb5a509-a69a-4a36-9425-e8ebc3bc2023/transactions",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"account",
+								"cbb5a509-a69a-4a36-9425-e8ebc3bc2023",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
