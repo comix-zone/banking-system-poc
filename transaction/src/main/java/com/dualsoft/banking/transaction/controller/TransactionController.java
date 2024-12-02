@@ -1,6 +1,5 @@
 package com.dualsoft.banking.transaction.controller;
 
-import com.dualsoft.banking.transaction.domain.Transaction;
 import com.dualsoft.banking.transaction.dto.*;
 import com.dualsoft.banking.transaction.exception.TransactionDoubleInitializationException;
 import com.dualsoft.banking.transaction.exception.TransactionGeneralErrorException;
@@ -25,8 +24,8 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/v1/transaction", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Transaction Controller", description = "Operations for transactions")
+@RequestMapping(value = "/v1/transaction", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TransactionController {
     private final TransactionService transactionService;
 

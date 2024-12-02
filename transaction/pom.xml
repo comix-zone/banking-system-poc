@@ -82,12 +82,6 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.dualsoft.banking</groupId>
-            <artifactId>common-events</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>3.1.1</version>
@@ -98,6 +92,19 @@
             <artifactId>postgresql</artifactId>
             <version>42.5.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.redislabs</groupId>
+            <artifactId>jrebloom</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+<!--        INTERNAL-->
+        <dependency>
+            <groupId>com.dualsoft.banking</groupId>
+            <artifactId>common-events</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
